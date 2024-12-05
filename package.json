@@ -58,7 +58,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-kuc-v1": "file:eslint-plugin-kuc-v1",
     "node-actionlint": "^1.2.2",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.7.2",
     "webpack": "^5.97.0",
