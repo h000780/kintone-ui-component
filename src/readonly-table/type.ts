@@ -31,6 +31,6 @@ export declare class ReadOnlyTable<T extends object = object> extends KucBase {
   visible: boolean;
   constructor(props?: ReadOnlyTableProps<T>);
   shouldUpdate(changedProperties: PropertyValues): boolean;
-  render(): import("lit-html").TemplateResult<1>;
+  render(): import("lit").TemplateResult<1>;
   updated(): void;
 }
