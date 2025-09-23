@@ -10,6 +10,26 @@ export default {
     defaultReporter({ reportTestResults: true, reportTestProgress: true }),
   ],
   coverageConfig: {
+    nativeInstrumentation: true,
+    report: true,
+    reportDir: "coverage",
+    reporters: ["text", "lcov"],
+    // Instrument executed JS and remap to TS via sourcemaps
+    include: ["unit_test/**/*.js"],
+    // Exclude test files and helper bundles from coverage
+    exclude: [
+      "unit_test/**/test/**",
+      "unit_test/index.bundle.js",
+      "unit_test/dev-info.js",
+      "unit_test/version.js",
+      "node_modules/**",
+      "lib/**",
+      "umd/**",
+      "demos/**",
+      "docs/**",
+      "scripts/**",
+      "eslint-plugin-kuc-v1/**",
+    ],
     threshold: {
       statements: 90,
       branches: 90,
