@@ -7,6 +7,9 @@ jobs:
     name: Run unit test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Node.js (no cache yet)
         uses: actions/setup-node@v4
         with:
