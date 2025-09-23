@@ -14,21 +14,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
- 
-      - name: Enable Corepack and prepare pnpm from packageManager
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+    
+      - name: Enable Corepack and activate pnpm from packageManager
         run: |
           corepack enable
           corepack prepare $(node -p "require('./package.json').packageManager") --activate
-
-      - name: Setup Node.js (enable pnpm cache)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
-
-      - name: Enable Corepack (use pnpm from package.json)
-        run: corepack enable
+          pnpm -v
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
