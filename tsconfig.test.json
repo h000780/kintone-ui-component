@@ -4,6 +4,8 @@
     "noEmitOnError": true,
     "esModuleInterop": false,
     "importHelpers": true,
+    "sourceMap": true,
+    "inlineSources": true,
     "outDir": "./unit_test",
     "types": ["@types/mocha"]
   },
