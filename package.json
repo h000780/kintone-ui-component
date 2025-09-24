@@ -2,7 +2,6 @@
   "name": "kintone-ui-component",
   "version": "1.22.0",
   "description": "kintone UI Component",
-  "packageManager": "pnpm@10.17.1",
   "author": {
     "name": "Cybozu, Inc.",
     "url": "https://cybozu.co.jp"

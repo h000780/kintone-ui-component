@@ -7,32 +7,21 @@ jobs:
     name: Run unit test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
+      - uses: actions/checkout@v4
+      - name: Install node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-    
-      - name: Enable Corepack and activate pnpm from packageManager
-        run: |
-          corepack enable
-          corepack prepare $(node -p "require('./package.json').packageManager") --activate
-          pnpm -v
-
-      - name: Get pnpm store path
-        id: pnpm-store
-        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Cache pnpm store
+          node-version: 22
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+      - name: Cache dependencies
         uses: actions/cache@v4
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
+          path: ~/.pnpm-store
+          key: pnpm-${{ hashFiles('./pnpm-lock.yaml') }}
+          restore-keys: pnpm-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
