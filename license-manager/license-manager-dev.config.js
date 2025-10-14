@@ -76,6 +76,7 @@ const config = {
       "@storybook/addon-viewport",
       "@storybook/web-components",
       "@storybook/web-components-webpack5",
+      "storybook"
     ],
   },
   overrideLicense: (dep) => {
