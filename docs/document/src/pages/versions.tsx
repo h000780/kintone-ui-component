@@ -9,7 +9,7 @@ import Link from "@docusaurus/Link";
 import {
   useLatestVersion,
   useVersions,
-} from "@docusaurus/plugin-content-docs/lib/client";
+} from "@docusaurus/plugin-content-docs/client";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Heading from "@theme/Heading";
 import Layout from "@theme/Layout";

@@ -12,24 +12,28 @@ jobs:
     - name: Install node
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 22
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: latest
     - name: Cache dependencies
       uses: actions/cache@v4
       with:
-        path: ~/.npm
-        key: npm-${{ hashFiles('package-lock.json') }}
-        restore-keys: npm-
+        path: ~/.pnpm-store
+        key: pnpm-${{ hashFiles('./pnpm-lock.yaml') }}
+        restore-keys: pnpm-
     - name: Install dependencies
       run: |
-        npm ci
-        npm i @actions/core --no-save
+        pnpm install --frozen-lockfile
+        pnpm add @actions/core --no-save
     - name: Check version
       id: check_version
       uses: ./.github/actions/check_version
     - name: Run ESLint
-      run: npm run es-lint
+      run: pnpm run es-lint
     - name: Run unit test
-      run: npm test
+      run: pnpm test
     - name: Trigger run upload release workflows
       uses: peter-evans/repository-dispatch@v3
       with:

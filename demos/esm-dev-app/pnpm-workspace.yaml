@@ -1,0 +1,2 @@
+overrides:
+  kintone-ui-component: link:../../../../../../Library/pnpm/global/5/node_modules/kintone-ui-component
