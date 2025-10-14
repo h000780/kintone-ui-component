@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --frozen-lockfile
-          pnpm add @actions/core @cybozu/license-manager -d
+          pnpm add @actions/core @cybozu/license-manager --save-dev
 
       - name: Analyze and extract prod licenses
         run: |
