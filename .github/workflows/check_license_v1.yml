@@ -2,7 +2,7 @@ name: Check v1 license
 
 on:
   pull_request:
-    branches: [master]
+    branches: [develop]
 
 jobs:
   license_manager:
